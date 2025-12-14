@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>今日、会社を辞める理由メーカー</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Hiragino Sans', 'Yu Gothic', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      font-size: 28px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+    .result-box {
+      background: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 30px 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .result-text {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: 500;
+    }
+    .placeholder {
+      color: #999;
+      font-size: 16px;
+    }
+    .generate-btn {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .generate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    .generate-btn:active {
+      transform: translateY(0);
+    }
+    .icon {
+      margin-right: 8px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>今日、会社を辞める理由メーカー</h1>
+    <p class="subtitle">ボタンを押すだけで理由を自動生成👇</p>
+    <div class="result-box">
+      <p class="result-text placeholder" id="result">ボタンを押してください</p>
+    </div>
+    <button class="generate-btn" id="generateBtn">
+      <span class="icon">👉</span>理由を生成する
+    </button>
+  </div>
+
+  <script>
+    const reasons = [
+      "上司の「あとでいい？」が6回目",
+      "給料日は来るけど希望は来ない",
+      "会議の会議が始まった",
+      "「やりがい」という言葉が給料明細に載っていない",
+      "カフェラテ1杯分の昇給を提示された",
+      "エアコンの設定温度で派閥ができた",
+      "「成長できる環境です」と言われて3年経った",
+      "定時の意味を忘れた",
+      "月曜日が週に2回ある気がする",
+      "有給の申請書が見つからない",
+      "「お疲れ様です」を1日100回言った",
+      "休憩時間がトイレでの3分間",
+      "昇進したのに給料が据え置き",
+      "会社の「家族的な雰囲気」が重い",
+      "金曜日の17時に「ちょっといい？」と言われた",
+      "残業代が「やりがい」で支払われた",
+      "PCのパスワードが複雑すぎて人生も複雑になった",
+      "「若手の意見を聞きたい」が口癖なのに却下される",
+      "経費精算が承認されるまで3週間かかる",
+      "社内メールの返信に「お世話になっております」を30回書いた",
+      "ランチタイムが唯一の自由時間",
+      "褒められたのは入社式が最後",
+      "AIに仕事を奪われる前に心が壊れそう",
+      "上司の武勇伝を今週3回聞いた",
+      "「これ、昨日までに」と今日言われた"
+    ];
+
+    function generateReason() {
+      const resultElement = document.getElementById('result');
+      const randomReason = reasons[Math.floor(Math.random() * reasons.length)];
+      resultElement.classList.remove('fade-in', 'placeholder');
+      void resultElement.offsetWidth;
+      resultElement.classList.add('fade-in');
+      resultElement.textContent = `「${randomReason}」`;
+    }
+
+    document.getElementById('generateBtn').addEventListener('click', generateReason);
+  </script>
+</body>
+</html>
